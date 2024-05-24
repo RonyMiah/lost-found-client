@@ -1,3 +1,4 @@
+import Footer from "@/components/Shared/Footer/Footer";
 import Navber from "@/components/Shared/Navber/Navber";
 
 const CommonLayout = ({ children }: { children: React.ReactNode }) => {
@@ -5,7 +6,7 @@ const CommonLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <Navber />
       <div className="min-h-screen">{children}</div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
