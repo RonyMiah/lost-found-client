@@ -45,7 +45,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
         <Link href={''} className="mx-8 block py-4">
           About Us
         </Link>
-        <Link href={''} className="mx-8 block py-4" >
+        <Link href={''} className="mx-8 block py-4">
           My Profile
         </Link>
 
@@ -58,7 +58,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
     <>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar component="nav">
+        <AppBar component="nav" sx={{ backgroundColor: '#501D93' }}>
           <Toolbar>
             <IconButton
               color="inherit"
