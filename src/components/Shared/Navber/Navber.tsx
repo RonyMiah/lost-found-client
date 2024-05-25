@@ -10,7 +10,7 @@ import List from '@mui/material/List';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Container } from '@mui/material';
 import Image from 'next/image';
 import logo from '@/assets/logo3.png';
@@ -18,7 +18,7 @@ import AuthButton from '@/components/UI/AuthButton/AuthButton';
 
 const drawerWidth = 240;
 
-const Navber = () => {
+const Navber = ({ children }: { children: React.ReactNode }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -44,7 +44,7 @@ const Navber = () => {
   );
 
   return (
-    <Container>
+    <>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar component="nav">
@@ -89,8 +89,12 @@ const Navber = () => {
             {drawer}
           </Drawer>
         </nav>
+        <Box component="main" >
+          <Toolbar />
+          {children}
+        </Box>
       </Box>
-    </Container>
+    </>
   );
 };
 
