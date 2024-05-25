@@ -15,6 +15,7 @@ import { Container } from '@mui/material';
 import Image from 'next/image';
 import logo from '@/assets/logo3.png';
 import AuthButton from '@/components/UI/AuthButton/AuthButton';
+import Link from 'next/link';
 
 const drawerWidth = 240;
 
@@ -38,6 +39,16 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
       </Typography>
       <Divider />
       <List>
+        <Link href={''} className="mx-8 block py-4">
+          Home
+        </Link>
+        <Link href={''} className="mx-8 block py-4">
+          About Us
+        </Link>
+        <Link href={''} className="mx-8 block py-4" >
+          My Profile
+        </Link>
+
         <AuthButton />
       </List>
     </Box>
@@ -66,6 +77,15 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
               <Image src={logo} alt="logo" height={60} width={60} />
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+              <Link href={'/'} className="mx-8 ">
+                Home
+              </Link>
+              <Link href={''} className="mx-8">
+                About Us
+              </Link>
+              <Link href={''} className="mx-8">
+                My Profile
+              </Link>
               <AuthButton />
             </Box>
           </Toolbar>
@@ -89,7 +109,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
             {drawer}
           </Drawer>
         </nav>
-        <Box component="main" >
+        <Box component="main">
           <Toolbar />
           {children}
         </Box>

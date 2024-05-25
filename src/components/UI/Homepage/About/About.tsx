@@ -10,10 +10,10 @@ const About = () => {
       </h2>
       <Container>
         <div className="text-white py-8">
-          <Grid container spacing={20}>
+          <Grid container spacing={16}>
             <Grid item xs={12} md={6}>
               <h2 className="text-3xl font-bold  mt-6">
-                Lost And Found Is Our Core Business{' '}
+                LOST AND FOUND IS OUR CORE BUSINESS
               </h2>
               <p className="mt-5">
                 The Lost and Found App was developed in cooperation with
@@ -30,8 +30,8 @@ const About = () => {
               <Image
                 src={aboutImage}
                 alt="about image"
-                width={400}
-                height={100}
+                width={1000}
+                height={1000}
               />
             </Grid>
           </Grid>
