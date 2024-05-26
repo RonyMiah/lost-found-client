@@ -64,26 +64,27 @@ export default function AccountMenu() {
           componentsProps={{
             tooltip: {
               sx: {
-                bgcolor: '#cdd1da5c',
-                color: 'primary.main', // Change text color if necessary
+                bgcolor: '#FFF',
+                color: '#fff', // Change text color if necessary
               },
             },
           }}
         >
           <IconButton
+            className="text-white"
             onClick={handleClick}
             aria-controls={open ? 'account-menu' : undefined}
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
-            //   size='small'
+            // size="small"
             sx={{
-              background: '#ffffff',
+              background: 'transparent',
               '& svg': {
-                color: 'primary.main',
+                color: 'white',
               },
             }}
           >
-            <KeyboardArrowDownIcon />
+            <KeyboardArrowDownIcon className="text-white" />
           </IconButton>
         </Tooltip>
       </Box>
@@ -100,17 +101,17 @@ export default function AccountMenu() {
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
         <MenuItem onClick={handleClose}>
-          <Avatar sx={{ background: 'transparent', color: 'primary.main' }} />
-          Profile
+          <Avatar sx={{ background: 'transparent', color: 'white' }} />
+          <span className="text-white">Profile</span>
         </MenuItem>
 
         <Divider />
 
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <Logout fontSize="small" sx={{ color: 'error.main' }} />
+            <Logout fontSize="small" sx={{ color: 'white' }} />
           </ListItemIcon>
-          Logout
+          <span className="text-white"> Logout</span>
         </MenuItem>
       </Menu>
     </React.Fragment>

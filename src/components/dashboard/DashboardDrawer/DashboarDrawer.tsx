@@ -10,9 +10,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import SideBar from '../SideBar/SideBar';
-
 import { Avatar, Badge, Stack } from '@mui/material';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import AccountMenu from '../AccountMenu/AccountMenu';
 
 const drawerWidth = 240;
@@ -44,7 +42,7 @@ export default function DashbordDrawer({
   // Remove this const when copying and pasting into your project.
 
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24">
+    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-violet-900 ">
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar
@@ -67,27 +65,16 @@ export default function DashbordDrawer({
               <MenuIcon />
             </IconButton>
             <Box>
-              <Typography variant="body2" noWrap component="div" color="gray">
-                Hi .....
-                {/* Hi, {isLoading ? 'Loading...' : data?.name} */}
+              <Typography variant="body2" noWrap component="div" color="white">
+                Hi ,{/* Hi, {isLoading ? 'Loading...' : data?.name} */}
               </Typography>
 
-              <Typography
-                variant="body2"
-                noWrap
-                component="div"
-                color="primary.main"
-              >
-                Welcome To , PH Helth Care
+              <Typography variant="body2" noWrap component="div" color="white">
+                Welcome To , Found Way
               </Typography>
             </Box>
             <Stack direction="row" gap={3}>
-              <Badge badgeContent={1} color="primary">
-                <IconButton sx={{ background: '#ffffff' }}>
-                  <NotificationsNoneIcon color="action" />
-                </IconButton>
-              </Badge>
-              {/* <Avatar alt={data?.name} src={data?.profilePhoto} /> */}
+              <Avatar alt="avater Img" src="<PersonIcon/>" />
               <AccountMenu />
             </Stack>
           </Toolbar>
@@ -139,7 +126,7 @@ export default function DashbordDrawer({
           }}
         >
           <Toolbar />
-          <Box>{children}</Box>
+          <div className="min-h-screen text-white ">{children}</div>
         </Box>
       </Box>
     </div>

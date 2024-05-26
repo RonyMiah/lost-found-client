@@ -7,14 +7,15 @@ import SidebarItem from './SidebarItem';
 import { useEffect, useState } from 'react';
 import { drawerItems } from '@/utils/drawerItems';
 import { UserRole } from '@/types';
+import { getUserInfo } from '@/services/auth.services';
 
 const SideBar = () => {
   const [userRole, setUserRole] = useState(' ');
 
-  //   useEffect(() => {
-  //     const { role } = getUserInfo() ;
-  //     setUserRole(role);
-  //   }, []);
+  useEffect(() => {
+    const { role } = getUserInfo();
+    setUserRole(role);
+  }, []);
 
   return (
     <div className=" h-full w-full bg-gradient-to-r from-violet-900 to-violet-900  ">

@@ -1,9 +1,11 @@
+import React from 'react';
+
 const DashboardHomePage = () => {
-  return (
-    <div>
-      <h1>Welcome to Deshboard Home Page</h1>
-    </div>
-  );
+    return (
+        <div>
+            <h2>Hello kjsdkfjsakljfklsajfkljsdflkjasfjslkjfdlksjdf</h2>
+        </div>
+    );
 };
 
 export default DashboardHomePage;
