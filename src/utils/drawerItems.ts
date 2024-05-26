@@ -1,3 +1,4 @@
+'use client';
 import { USER_ROLE } from '@/constants/role';
 import { DrawerItem, UserRole } from '@/types';
 import LocalActivityIcon from '@mui/icons-material/LocalActivity';

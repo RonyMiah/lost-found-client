@@ -44,9 +44,23 @@ const ReuseableSelect = ({
           helperText={
             isError ? (formState.errors[name]?.message as string) : ''
           }
+          InputLabelProps={{
+            sx: {
+              color: 'white',
+            },
+          }}
         >
           {items.map((item) => (
-            <MenuItem key={item} value={item}>
+            <MenuItem
+              sx={{
+                '&.MuiMenuItem-root': {
+                  justifyContent: 'flex-start',
+                  color: 'white',
+                },
+              }}
+              key={item}
+              value={item}
+            >
               {item}
             </MenuItem>
           ))}

@@ -1,4 +1,5 @@
 import { authKey } from '@/constants/authKey';
+import { axiosInstance } from '@/helpars/axios/axiosInstance';
 import { jwtDecodedToken } from '@/utils/jwt';
 import { getFromLocalStorage, setToLocalstorage } from '@/utils/local-storage';
 
@@ -10,6 +11,13 @@ export const storeUserInfo = async ({
   return setToLocalstorage(authKey, accessToken);
 };
 
+//authkey is "accessToken"
+export const isLoggedIn = () => {
+  const authToken = getFromLocalStorage(authKey);
+  if (authToken) {
+    return !!authToken; //for boolean value( true )  return  >> using !! duble dagation
+  }
+};
 export const getUserInfo = () => {
   const authToken = getFromLocalStorage(authKey);
   if (authToken) {
@@ -20,4 +28,13 @@ export const getUserInfo = () => {
       role: decoded?.role?.toLowerCase(),
     };
   }
+};
+
+export const getNewAccessToken = async () => {
+  return await axiosInstance({
+    url: `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/refresh-token`,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true,
+  });
 };

@@ -10,12 +10,15 @@ export const theme = createTheme({
     },
     mode: 'dark',
   },
+  
   components: {
+    
     MuiButton: {
       defaultProps: {
         variant: 'contained',
         color: 'secondary',
       },
+      
       styleOverrides: {
         root: {
           padding: '8px 24px',

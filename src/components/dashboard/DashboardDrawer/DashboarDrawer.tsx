@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import SideBar from '../SideBar/SideBar';
 import { Avatar, Badge, Stack } from '@mui/material';
 import AccountMenu from '../AccountMenu/AccountMenu';
+import { useGetSingelUserQuery } from '@/redux/api/userApi';
 
 const drawerWidth = 240;
 
@@ -22,7 +23,7 @@ export default function DashbordDrawer({
 }) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [isClosing, setIsClosing] = React.useState(false);
-  //   const { data, isLoading } = useGetSingelUserQuery({});
+  const { data, isLoading } = useGetSingelUserQuery({});
   // console.log(data);
   const handleDrawerClose = () => {
     setIsClosing(true);
@@ -39,7 +40,6 @@ export default function DashbordDrawer({
     }
   };
 
-  // Remove this const when copying and pasting into your project.
 
   return (
     <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-violet-900 ">
@@ -66,7 +66,7 @@ export default function DashbordDrawer({
             </IconButton>
             <Box>
               <Typography variant="body2" noWrap component="div" color="white">
-                Hi ,{/* Hi, {isLoading ? 'Loading...' : data?.name} */}
+                Hi , {isLoading ? 'Loading...' : data?.userName}
               </Typography>
 
               <Typography variant="body2" noWrap component="div" color="white">
