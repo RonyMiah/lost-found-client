@@ -33,6 +33,7 @@ const ReuseableUploader = ({ name, label, sx }: Tprops) => {
               value={value?.filename}
               {...field}
               placeholder={label}
+              fullWidth={true}
               onChange={(e) =>
                 onChange((e.target as HTMLInputElement).files?.[0])
               }

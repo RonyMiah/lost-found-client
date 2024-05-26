@@ -1,7 +1,7 @@
 import { authKey } from '@/constants/authKey';
 import { axiosInstance } from '@/helpars/axios/axiosInstance';
 import { jwtDecodedToken } from '@/utils/jwt';
-import { getFromLocalStorage, setToLocalstorage } from '@/utils/local-storage';
+import { getFromLocalStorage, removeFromLocalStorage, setToLocalstorage } from '@/utils/local-storage';
 
 export const storeUserInfo = async ({
   accessToken,
@@ -18,6 +18,11 @@ export const isLoggedIn = () => {
     return !!authToken; //for boolean value( true )  return  >> using !! duble dagation
   }
 };
+
+export const removeFromUser = () => {
+  return removeFromLocalStorage(authKey);
+};
+
 export const getUserInfo = () => {
   const authToken = getFromLocalStorage(authKey);
   if (authToken) {

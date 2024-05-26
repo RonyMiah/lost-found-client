@@ -45,25 +45,25 @@ axiosInstance.interceptors.response.use(
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
 
-    const config = error?.config;
-    console.log(config);
-    if (error?.response?.status === 500 && !config.sent) {
-      config.sent = true;
-      const response = await getNewAccessToken();
-      // console.log(response);
-      const accessToken = response?.data?.accessToken;
-      // console.log(accessToken);
-      config.headers['Authorization'] = accessToken;
-      setToLocalstorage(authKey, accessToken);
-      return axiosInstance(config);
-    } else {
+    // const config = error?.config;
+    // console.log(config);
+    // if (error?.response?.status === 500 && !config.sent) {
+    //   config.sent = true;
+    //   const response = await getNewAccessToken();
+    //   // console.log(response);
+    //   const accessToken = response?.data?.accessToken;
+    //   // console.log(accessToken);
+    //   config.headers['Authorization'] = accessToken;
+    //   setToLocalstorage(authKey, accessToken);
+    //   return axiosInstance(config);
+    // } else {
       const responseObject: IGenericErrorResponse = {
         statusCode: error?.response?.data?.statusCode || 500,
         message: error?.response?.data?.message || 'Something went Wrong !',
         errorMessage: error?.response?.data?.message,
       };
       return responseObject;
-    }
+    // }
   }
 );
 

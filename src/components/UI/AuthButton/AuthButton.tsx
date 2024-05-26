@@ -1,21 +1,26 @@
+'use client';
+import AvaterMenu from '@/components/dashboard/AvaterMenu/AvaterMenu';
+import { getUserInfo, removeFromUser } from '@/services/auth.services';
 import { Button } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const AuthButton = () => {
+  const userInfo = getUserInfo();
   const router = useRouter();
   const handleLogout = () => {
-    // router.refresh();
+    removeFromUser();
+    router.refresh();
   };
   return (
     <>
-      <Button onClick={handleLogout} color="error">
-        LogOut
-      </Button>
-
-      <Button component={Link} href="/login">
-        Login
-      </Button>
+      {userInfo?.id ? (
+        <AvaterMenu/>
+      ) : (
+        <Button component={Link} href="/login">
+          Login
+        </Button>
+      )}
     </>
   );
 };

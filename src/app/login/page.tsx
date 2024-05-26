@@ -112,7 +112,7 @@ const LoginPage = () => {
                 }}
               >
                 <Grid container spacing={2} my={1}>
-                  <Grid item md={6}>
+                  <Grid item md={6} xs={12}>
                     <ReuseableInput
                       name="email"
                       fullWidth={true}
@@ -121,7 +121,7 @@ const LoginPage = () => {
                       sx={{ color: 'white' }}
                     />
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} xs={12}>
                     <ReuseableInput
                       name="password"
                       fullWidth={true}

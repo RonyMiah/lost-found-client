@@ -2,7 +2,7 @@ import { Box, Button } from '@mui/material';
 
 const HeroSection = () => {
   return (
-    <Box className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24">
+    <Box className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-32">
       <div className="text-center text-white">
         <h1 className="text-5xl font-bold pt-4  ">
           REPORT WHAT YOU FOUND OR LOST

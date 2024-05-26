@@ -128,7 +128,7 @@ const RegisterPage = () => {
                 defaultValues={defatultvalues}
               >
                 <Grid container spacing={2} my={1}>
-                  <Grid item md={12}>
+                  <Grid item md={12} xs={12}>
                     <ReuseableInput
                       name="userName"
                       fullWidth={true}
@@ -137,7 +137,7 @@ const RegisterPage = () => {
                       size="small"
                     />
                   </Grid>
-                  <Grid item md={12}>
+                  <Grid item md={12} xs={12}>
                     <ReuseableInput
                       name="email"
                       fullWidth={true}
@@ -146,7 +146,7 @@ const RegisterPage = () => {
                       size="small"
                     />
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} xs={12}>
                     <ReuseableInput
                       name="password"
                       fullWidth={true}
@@ -155,7 +155,7 @@ const RegisterPage = () => {
                       size="small"
                     />
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} xs={12}>
                     <ReuseableInput
                       name="confirmPassword"
                       fullWidth={true}

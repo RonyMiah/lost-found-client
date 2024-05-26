@@ -29,17 +29,20 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        <Image
-          className="mx-auto"
-          src={logo}
-          alt="logo"
-          height={40}
-          width={40}
-        />
+        <Link href="/">
+          <Image
+            className="mx-auto"
+            src={logo}
+            alt="logo"
+            height={40}
+            width={40}
+          />
+        </Link>
       </Typography>
+
       <Divider />
       <List>
-        <Link href={''} className="mx-8 block py-4">
+        {/* <Link href={''} className="mx-8 block py-4">
           Home
         </Link>
         <Link href={''} className="mx-8 block py-4">
@@ -47,7 +50,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
         </Link>
         <Link href={''} className="mx-8 block py-4">
           My Profile
-        </Link>
+        </Link> */}
 
         <AuthButton />
       </List>
@@ -69,15 +72,19 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
             >
               <MenuIcon />
             </IconButton>
+
             <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
             >
-              <Image src={logo} alt="logo" height={60} width={60} />
+              <Link href="/">
+                <Image src={logo} alt="logo" height={60} width={60} />
+              </Link>
             </Typography>
+
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              <Link href={'/'} className="mx-8 ">
+              {/* <Link href={'/'} className="mx-8 ">
                 Home
               </Link>
               <Link href={''} className="mx-8">
@@ -85,7 +92,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
               </Link>
               <Link href={''} className="mx-8">
                 My Profile
-              </Link>
+              </Link> */}
               <AuthButton />
             </Box>
           </Toolbar>
