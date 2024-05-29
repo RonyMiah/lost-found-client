@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 
 const CardItems = ({ props }: { props: any }) => {
-  console.log(props);
+  // console.log(props);
   return (
     <div className='mt-8'>
       <Card sx={{ maxWidth: 345, boxShadow: 'none' }}>

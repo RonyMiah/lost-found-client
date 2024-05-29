@@ -11,9 +11,9 @@ const ResentLostItems = async () => {
     'https://lost-found-server.vercel.app/api/v1/property/getall-lost-items'
   );
   const data = await res.json();
-  console.log(data.data.data);
+  // console.log(data.data.data);
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-12">
+    <div className=" h-full  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-12">
       <Box>
         <h2 className="text-white text-3xl font-bold text-center">
           Recent Lost Item Reports

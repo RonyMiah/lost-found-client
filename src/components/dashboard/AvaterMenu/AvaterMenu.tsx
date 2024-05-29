@@ -5,21 +5,18 @@ import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
-import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRouter } from 'next/navigation';
 import { removeFromUser } from '@/services/auth.services';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Link from 'next/link';
 
 export default function AvaterMenu() {
-
   const router = useRouter();
   const handleLogout = () => {
     removeFromUser();
@@ -34,6 +31,7 @@ export default function AvaterMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -87,24 +85,34 @@ export default function AvaterMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
+        {/* <Link href="/lostitems"> */}
+
+        <MenuItem>
+          <ListItemIcon>
+            <AccountCircleIcon fontSize="small" />
+          </ListItemIcon>
+          <span className="text-white">My Profile</span>
+        </MenuItem>
+
+        {/* </Link> */}
         <Link href="/lostitems">
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <AddCircleIcon fontSize="small" />
-          </ListItemIcon>
-          <span className="text-white">Add Lost Items</span>
-        </MenuItem>
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <AddCircleIcon fontSize="small" />
+            </ListItemIcon>
+            <span className="text-white">Add Lost Items</span>
+          </MenuItem>
         </Link>
-       <Link href="/founditems">
-       <MenuItem onClick={handleClose}>
+        <Link href="/founditems">
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <AddCircleOutlineIcon fontSize="small" />
+            </ListItemIcon>
+            <span className="text-white">Add Found Items</span>
+          </MenuItem>
+        </Link>
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <AddCircleOutlineIcon fontSize="small" />
-          </ListItemIcon>
-          <span className="text-white">Add Found Items</span>
-        </MenuItem>
-       </Link>
-        <MenuItem onClick={handleLogout}  >
-          <ListItemIcon >
             <Logout fontSize="small" />
           </ListItemIcon>
           <span className="text-white">Log Out</span>

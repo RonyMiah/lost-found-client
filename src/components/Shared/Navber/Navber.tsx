@@ -59,7 +59,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
+      <Box sx={{}}>
         <CssBaseline />
         <AppBar component="nav" sx={{ backgroundColor: '#501D93' }}>
           <Toolbar>
@@ -117,7 +117,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
           </Drawer>
         </nav>
         <Box component="main">
-          <Toolbar />
+          {/* <Toolbar /> */}
           {children}
         </Box>
       </Box>

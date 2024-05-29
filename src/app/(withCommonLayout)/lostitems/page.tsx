@@ -81,7 +81,7 @@ const Lostitems = () => {
   };
 
   return (
-    <div className=" h-screen w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-8">
+    <div className=" h-screen  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24">
       <h1 className="text-3xl font-bold text-white px-20">
         Submit Lost Property
       </h1>

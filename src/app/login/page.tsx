@@ -7,7 +7,6 @@ import {
   Grid,
   Stack,
   Typography,
-  inputLabelClasses,
 } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -22,7 +21,8 @@ import Link from 'next/link';
 import { userLogin } from '@/services/actions/userLogin';
 import { toast } from 'sonner';
 import { storeUserInfo } from '@/services/auth.services';
-export const validationSchema = z.object({
+
+const validationSchemaForLogin = z.object({
   email: z
     .string()
     .email({ message: 'Please Enter Your Valida Email Address'! }),
@@ -105,7 +105,7 @@ const LoginPage = () => {
             <Box>
               <ReuseableForm
                 onSubmit={hanldeLoginSubmit}
-                resolver={zodResolver(validationSchema)}
+                resolver={zodResolver(validationSchemaForLogin)}
                 defaultValues={{
                   email: '',
                   password: '',

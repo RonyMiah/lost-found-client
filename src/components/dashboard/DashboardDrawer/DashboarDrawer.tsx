@@ -42,7 +42,7 @@ export default function DashbordDrawer({
 
 
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-violet-900 ">
+    <div className=" h-full  bg-gradient-to-r from-violet-900 to-violet-900 ">
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
         <AppBar

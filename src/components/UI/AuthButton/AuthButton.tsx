@@ -15,7 +15,7 @@ const AuthButton = () => {
   return (
     <>
       {userInfo?.id ? (
-        <AvaterMenu/>
+        <AvaterMenu />
       ) : (
         <Button component={Link} href="/login">
           Login

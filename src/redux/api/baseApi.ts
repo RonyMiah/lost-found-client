@@ -7,5 +7,5 @@ export const baseApi = createApi({
     baseUrl: 'https://lost-found-server.vercel.app/api/v1',
   }),
   endpoints: () => ({}),
-  tagTypes: ['user', 'lost', 'found'],
+  tagTypes: ['user', 'lost', 'found', 'claim'],
 });

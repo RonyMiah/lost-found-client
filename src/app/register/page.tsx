@@ -17,7 +17,7 @@ import { userLogin } from '@/services/actions/userLogin';
 import { storeUserInfo } from '@/services/auth.services';
 
 //zod Validation
-export const patientValidationSchema = z
+const patientValidationSchema = z
   .object({
     userName: z.string().min(1, 'User Name Required!'),
     email: z
@@ -32,12 +32,6 @@ export const patientValidationSchema = z
   });
 
 //default value's
-export const defatultvalues = {
-  userName: '',
-  email: '',
-  password: '',
-  confirmPassword: '',
-};
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -67,6 +61,12 @@ const RegisterPage = () => {
     } catch (error: any) {
       console.log(error);
     }
+  };
+  const defatultvalues = {
+    userName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
   };
 
   return (
