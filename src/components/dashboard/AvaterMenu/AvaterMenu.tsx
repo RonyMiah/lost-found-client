@@ -87,13 +87,14 @@ export default function AvaterMenu() {
       >
         {/* <Link href="/lostitems"> */}
 
+        <Link href="/myprofile">
         <MenuItem>
           <ListItemIcon>
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon>
           <span className="text-white">My Profile</span>
         </MenuItem>
-
+        </Link>
         {/* </Link> */}
         <Link href="/lostitems">
           <MenuItem onClick={handleClose}>
