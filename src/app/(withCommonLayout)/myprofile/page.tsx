@@ -19,7 +19,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import KeyIcon from '@mui/icons-material/Key';
 
 const StyleInformationBox = styled(Box)(({ theme }) => ({
-  backgroundColor: '#cc99eeaf',
+  backgroundColor: '#88828bb9',
   borderRadius: theme.spacing(1),
   padding: '8px 16px',
 }));
@@ -39,10 +39,15 @@ const MyProfile = () => {
           <h1 className="text-3xl font-bold mx-auto text-center ">
             My Profile
           </h1>
-          <hr className="w-48 mx-auto text-center my-4" />
+          <hr className="w-48 mx-auto text-center my-2" />
         </div>
-        <Grid container spacing={8} mx={'auto'}>
-          <Grid item md={6}>
+        <Grid container spacing={2} mx={'auto'} className="pt-24">
+          <Grid
+            item
+            md={6}
+            mx={'auto'}
+            className="flex justify-center items-center"
+          >
             <div>
               <Image
                 height={200}
@@ -50,43 +55,53 @@ const MyProfile = () => {
                 alt="User Image"
                 src="https://static.vecteezy.com/system/resources/thumbnails/028/149/256/small_2x/3d-user-profile-icon-png.png"
               />
-              <h1 className="text-3xl font-bold text-pink-300 ">
+              <h1 className="text-3xl font-bold text-white ">
                 Basic Information
               </h1>
-              <hr className="w-60  my-2 text-pink-300" />
+              {/* <hr className="w-60  my-2 text-pink-300" /> */}
               <p className="text-lg my-3">
-                <span className="font-bold text-gray-400">User Name :</span>{' '}
+                <span className="font-extrabold text-pink-300">
+                  User Name :
+                </span>{' '}
                 {data?.userName}
               </p>
               <p className="text-lg ">
-                <span className="font-bold text-gray-400"> Email :</span>{' '}
+                <span className="font-extrabold text-pink-300"> Email :</span>{' '}
                 {data?.email}
               </p>
             </div>
           </Grid>
-          <Grid item md={6} spacing={2} my={2}>
-            <Grid item md={4} my={2}>
+          <Grid item md={6} spacing={2} my={2} mx={'auto'}>
+            <Grid item md={4} my={2} mx={'auto'}>
               <StyleInformationBox>
-                <Typography color="Black">Role</Typography>
-                <Typography color="Black">{data?.role}</Typography>
+                <Typography color="white">
+                  <span className="font-extrabold">Role </span>
+                </Typography>
+                <Typography color="white">{data?.role}</Typography>
               </StyleInformationBox>
             </Grid>
-            <Grid item md={4} my={2}>
+            <Grid item md={4} my={2} mx={'auto'}>
               <StyleInformationBox>
-                <Typography color="Black">Status</Typography>
-                <Typography color="Black">{data?.status}</Typography>
+                <Typography color="white">
+                  <span className="font-extrabold"> Status </span>
+                </Typography>
+                <Typography color="white">{data?.status}</Typography>
               </StyleInformationBox>
             </Grid>
-            <Grid item md={4} my={2}>
+            <Grid item md={4} my={2} mx={'auto'}>
               <Link href={`/myprofile/edit/${data?.id}`}>
                 {' '}
-                <Button endIcon=<EditIcon />>Edit Profile Info </Button>{' '}
+                <Button fullWidth endIcon=<EditIcon />>
+                  Edit Profile Info{' '}
+                </Button>{' '}
               </Link>
             </Grid>
-            <Grid item md={4} my={2}>
+            <Grid item md={4} my={2} mx={'auto'}>
               <Link href="/myprofile/changepassword">
                 {' '}
-                <Button endIcon=<KeyIcon />>Change Password </Button>{' '}
+                <Button fullWidth endIcon=<KeyIcon />>
+                  Change Password{' '}
+                </Button>{' '}
               </Link>
             </Grid>
           </Grid>

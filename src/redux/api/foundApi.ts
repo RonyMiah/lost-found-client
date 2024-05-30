@@ -10,7 +10,14 @@ const extendedApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['found'],
     }),
+    getMyFoundItems: build.query({
+      query: () => ({
+        url: '/property/my-found-items',
+        method: 'GET',
+      }),
+      providesTags: ['found'],
+    }),
   }),
 });
 
-export const { useCrateFoundItemMutation } = extendedApi;
+export const { useCrateFoundItemMutation, useGetMyFoundItemsQuery} = extendedApi;

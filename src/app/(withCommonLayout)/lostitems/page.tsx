@@ -58,9 +58,9 @@ const Lostitems = () => {
 
     try {
       const res = await createLostItem(values).unwrap();
-      if(res?.id){
-        toast.success("Lost Property Submit Successfully !")
-        // router.push("/")
+      if (res?.id) {
+        toast.success('Lost Property Submit Successfully !');
+        router.push('/mylostitems');
       }
       console.log('Response', res);
     } catch (error: any) {

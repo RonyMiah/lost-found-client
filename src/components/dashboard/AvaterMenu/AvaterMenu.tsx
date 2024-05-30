@@ -15,6 +15,8 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Link from 'next/link';
+import AssessmentIcon from '@mui/icons-material/Assessment';
+import BadgeIcon from '@mui/icons-material/Badge';
 
 export default function AvaterMenu() {
   const router = useRouter();
@@ -88,12 +90,12 @@ export default function AvaterMenu() {
         {/* <Link href="/lostitems"> */}
 
         <Link href="/myprofile">
-        <MenuItem>
-          <ListItemIcon>
-            <AccountCircleIcon fontSize="small" />
-          </ListItemIcon>
-          <span className="text-white">My Profile</span>
-        </MenuItem>
+          <MenuItem>
+            <ListItemIcon>
+              <AccountCircleIcon fontSize="small" />
+            </ListItemIcon>
+            <span className="text-white">My Profile</span>
+          </MenuItem>
         </Link>
         {/* </Link> */}
         <Link href="/lostitems">
@@ -110,6 +112,22 @@ export default function AvaterMenu() {
               <AddCircleOutlineIcon fontSize="small" />
             </ListItemIcon>
             <span className="text-white">Add Found Items</span>
+          </MenuItem>
+        </Link>
+        <Link href="/mylostitems">
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <AssessmentIcon fontSize="small" />
+            </ListItemIcon>
+            <span className="text-white">My Lost Items</span>
+          </MenuItem>
+        </Link>
+        <Link href="/myfounditems">
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <BadgeIcon fontSize="small" />
+            </ListItemIcon>
+            <span className="text-white">My Found Items</span>
           </MenuItem>
         </Link>
         <MenuItem onClick={handleLogout}>
