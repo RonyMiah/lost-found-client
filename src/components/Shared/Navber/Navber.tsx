@@ -42,7 +42,7 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
 
       <Divider />
       <List>
-        {/* <Link href={''} className="mx-8 block py-4">
+        <Link href={''} className="mx-8 block py-4">
           Home
         </Link>
         <Link href={''} className="mx-8 block py-4">
@@ -50,7 +50,13 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
         </Link>
         <Link href={''} className="mx-8 block py-4">
           My Profile
-        </Link> */}
+        </Link>
+        <Link href={''} className="mx-8 block py-4">
+          Lost Items
+        </Link>
+        <Link href={''} className="mx-8 block py-4">
+          Found Items
+        </Link>
 
         <AuthButton />
       </List>
@@ -83,16 +89,25 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
               </Link>
             </Typography>
 
-            <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {/* <Link href={'/'} className="mx-8 ">
+            <Box
+              sx={{
+                display: { xs: 'none', sm: 'flex' },
+                alignItems: { sm: 'center', xs: 'center' },
+                justifyContent: { sm: 'center', xs: 'center' },
+              }}
+            >
+              <Link href={'/'} className="mx-8 ">
                 Home
               </Link>
-              <Link href={''} className="mx-8">
+              <Link href={'#'} className="mx-8">
                 About Us
               </Link>
-              <Link href={''} className="mx-8">
-                My Profile
-              </Link> */}
+              <Link href={'/viewlostitems'} className="mx-8">
+                Lost Items
+              </Link>
+              <Link href={'/viewfounditems'} className="mx-8">
+                Found Items
+              </Link>
               <AuthButton />
             </Box>
           </Toolbar>

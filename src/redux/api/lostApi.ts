@@ -13,6 +13,15 @@ const extendedApi = baseApi.injectEndpoints({
       invalidatesTags: ['lost'],
     }),
 
+    getAllLostItems: build.query({
+      query: (query: Record<string, any>) => ({
+        url: '/property/getall-lost-items',
+        method: 'GET',
+        params: query,
+      }),
+      providesTags: ['lost'],
+    }),
+
     getMyLostItems: build.query({
       query: () => ({
         url: '/property/my-lost-items',
@@ -56,4 +65,5 @@ export const {
   useGetSingleLostItemsQuery,
   useUpdateLostItemsMutation,
   useDeleteLostItemsMutation,
+  useGetAllLostItemsQuery,
 } = extendedApi;

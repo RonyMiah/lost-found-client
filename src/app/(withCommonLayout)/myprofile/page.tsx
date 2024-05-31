@@ -33,9 +33,9 @@ const MyProfile = () => {
   //   console.log(data);
 
   return (
-    <div className="  text-white   bg-gradient-to-r from-violet-900 to-fuchsia-900 ">
+    <div className="  text-white  py-44  bg-gradient-to-r from-violet-900 to-fuchsia-900 ">
       <Container>
-        <div className="pt-32">
+        <div className="">
           <h1 className="text-3xl font-bold mx-auto text-center ">
             My Profile
           </h1>

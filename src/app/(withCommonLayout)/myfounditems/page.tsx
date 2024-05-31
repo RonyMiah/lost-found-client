@@ -1,22 +1,53 @@
-"use client"
-import { useGetMyFoundItemsQuery } from '@/redux/api/foundApi';
-import { Card, CardContent, Container, Typography } from '@mui/material';
+'use client';
+import {
+  useDeleteLostItemsMutation,
+  useGetMyLostItemsQuery,
+} from '@/redux/api/lostApi';
+import {
+  Button,
+  Card,
+  CardContent,
+  Container,
+  Typography,
+} from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import Link from 'next/link';
+import { toast } from 'sonner';
+import {
+  useDeleteFoundtemsMutation,
+  useGetMyFoundItemsQuery,
+} from '@/redux/api/foundApi';
 const MyFoundItems = () => {
-    const { data, isLoading } = useGetMyFoundItemsQuery({});
-    console.log(data)
+  const { data, isLoading } = useGetMyFoundItemsQuery({});
+  const [deleteFoundtems] = useDeleteFoundtemsMutation();
+  console.log(data);
+
+  //handle Delete
+  const handleDelete = async (id: string) => {
+    // console.log(id);
+    try {
+      const res = await deleteFoundtems(id).unwrap();
+      if (res?.id) {
+        toast.success('Lost Item Deleted Successfully !');
+      }
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  };
+
   return (
-    <div className=" h-full text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-10">
-      <div className="pt-32">
+    <div className=" max-h-full text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-44">
+      <div className="">
         <h1 className="text-3xl font-bold mx-auto text-center ">
           My Found Items
         </h1>
         <hr className="w-48 mx-auto text-center my-6" />
       </div>
       <Container>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 py-10 ">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 pt-6 ">
           {isLoading ? (
             <h1 className="text-center mx-auto text-3xl text-white py-20">
               Loading ...
@@ -33,15 +64,15 @@ const MyFoundItems = () => {
                     width={320}
                     height={320}
                   />
-                  <Typography
-                    sx={{ mb: 1.5 , mt:1.5}} color="text.secondary"
-                  >
+                  <Typography sx={{ mb: 1.5, mt: 1.5 }} color="text.secondary">
+                    <span className="font-extrabold">Title : </span>
+                    {item?.title}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5, mt: 1.5 }} color="text.secondary">
                     <span className="font-extrabold">Description: </span>
                     {item?.description}
                   </Typography>
-                  <Typography
-                    sx={{ mb: 1.5 }} color="text.secondary"
-                  >
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     <span className="font-extrabold">Location: </span>
                     {item?.location}
                   </Typography>
@@ -57,6 +88,24 @@ const MyFoundItems = () => {
                     <span className="font-extrabold">Brand: </span>
                     {item?.brand}
                   </Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <span className="font-extrabold">Status: </span>
+                    {item?.status}
+                  </Typography>
+                  <div className="flex gap-3">
+                    <Link href={`/myfounditems/edit/${item.id}`}>
+                      <Button endIcon={<EditIcon />} />
+                    </Link>
+
+                    <Button
+                      onClick={() => handleDelete(item?.id)}
+                      endIcon={<DeleteForeverIcon />}
+                    />
+
+                    <Link href={`/myfounditems/${item.id}`}>
+                      <Button sx={{ fontSize: '12px' }}>status</Button>
+                    </Link>
+                  </div>
                 </CardContent>
               </Card>
             ))

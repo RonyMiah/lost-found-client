@@ -36,7 +36,15 @@ export default function AvaterMenu() {
 
   return (
     <React.Fragment>
-      <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
+      <Box
+        sx={{
+          py:{xs:2},
+          display: 'flex',
+          alignItems: { sm: 'center', xs: 'center' },
+          justifyContent: { sm: 'center', xs: 'center' },
+          textAlign: 'center',
+        }}
+      >
         <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
         <Tooltip title="Account settings">
           <IconButton

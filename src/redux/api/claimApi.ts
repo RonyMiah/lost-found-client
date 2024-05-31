@@ -2,6 +2,14 @@ import { baseApi } from './baseApi';
 
 const extendedApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
+    createClaimItems: build.mutation({
+      query: (data) => ({
+        url: '/property/claim',
+        method: 'POST',
+        data: data,
+      }),
+      invalidatesTags: ['claim'],
+    }),
     getClaimItems: build.query({
       query: () => ({
         url: '/property/my-claim-items',
@@ -12,4 +20,4 @@ const extendedApi = baseApi.injectEndpoints({
   }),
 });
 
-export const { useGetClaimItemsQuery } = extendedApi;
+export const { useGetClaimItemsQuery, useCreateClaimItemsMutation } = extendedApi;

@@ -10,6 +10,14 @@ const extendedApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['found'],
     }),
+    getAllFoundItems: build.query({
+      query: (query: Record<string, any>) => ({
+        url: '/property/getall-found-items',
+        method: 'GET',
+        params: query,
+      }),
+      providesTags: ['found'],
+    }),
     getMyFoundItems: build.query({
       query: () => ({
         url: '/property/my-found-items',
@@ -17,7 +25,41 @@ const extendedApi = baseApi.injectEndpoints({
       }),
       providesTags: ['found'],
     }),
+
+    getSingleFoundItems: build.query({
+      query: (id: string) => {
+        console.log(id);
+        return {
+          url: `/property/getsingle-found-items/${id}`,
+          method: 'GET',
+        };
+      },
+      providesTags: ['found'],
+    }),
+
+    updateFoundItems: build.mutation({
+      query: (obj) => ({
+        url: `/property/update-found-items/${obj.id}`,
+        method: 'PATCH',
+        data: obj.data,
+      }),
+      invalidatesTags: ['found'],
+    }),
+    deleteFoundtems: build.mutation({
+      query: (id) => ({
+        url: `/property/update-found-items/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['found'],
+    }),
   }),
 });
 
-export const { useCrateFoundItemMutation, useGetMyFoundItemsQuery} = extendedApi;
+export const {
+  useCrateFoundItemMutation,
+  useGetMyFoundItemsQuery,
+  useGetSingleFoundItemsQuery,
+  useUpdateFoundItemsMutation,
+  useDeleteFoundtemsMutation,
+  useGetAllFoundItemsQuery,
+} = extendedApi;

@@ -11,6 +11,7 @@ type TInputProps = {
   sx?: SxProps;
   placeholder?: string;
   required?: boolean;
+  disabled?: boolean;
 };
 
 const ReuseableInput = ({
@@ -21,6 +22,7 @@ const ReuseableInput = ({
   size = 'small',
   sx,
   required,
+  disabled,
 }: TInputProps) => {
   const { control } = useFormContext();
   return (
@@ -29,6 +31,7 @@ const ReuseableInput = ({
       name={name}
       render={({ field, fieldState: { error } }) => (
         <TextField
+          disabled={disabled}
           sx={{ ...sx }}
           {...field}
           fullWidth={fullWidth}
@@ -40,11 +43,11 @@ const ReuseableInput = ({
           required={required}
           error={!!error?.message} //boolean value recived
           helperText={error?.message} //show error
-          //for color 
+          //for color
           InputLabelProps={{
             sx: {
-              color: "white",
-            }
+              color: 'white',
+            },
           }}
         />
       )}

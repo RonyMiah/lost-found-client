@@ -50,7 +50,7 @@ const Founditems = () => {
   //submit Handaller
   const registerHandleSubmit = async (values: FieldValues) => {
     values.date = dateFormater(values.date);
-    values.status = 'FOUND';
+    values.status = 'pending';
 
     // console.log(values);
 
@@ -58,7 +58,7 @@ const Founditems = () => {
       const res = await crateFoundItem(values).unwrap();
       if (res?.id) {
         toast.success('Found Property Submit Successfully !');
-        // router.push("/")
+        router.push('/myfounditems');
       }
       console.log('Response', res);
     } catch (error: any) {

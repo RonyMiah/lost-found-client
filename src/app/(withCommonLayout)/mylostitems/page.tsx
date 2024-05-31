@@ -19,7 +19,7 @@ import { toast } from 'sonner';
 const MylostItems = () => {
   const { data, isLoading } = useGetMyLostItemsQuery({});
   const [deleteLostItems] = useDeleteLostItemsMutation();
-  console.log(data);
+  // console.log(data);
 
   //handle Delete
   const handleDelete = async (id: string) => {
@@ -35,15 +35,15 @@ const MylostItems = () => {
   };
 
   return (
-    <div className=" h-full text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-10">
-      <div className="pt-32">
+    <div className="  text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-32">
+      <div className="">
         <h1 className="text-3xl font-bold mx-auto text-center ">
           My Lost Items
         </h1>
         <hr className="w-48 mx-auto text-center my-6" />
       </div>
       <Container>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 py-32 ">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 py-12 ">
           {isLoading ? (
             <h1 className="text-center mx-auto text-3xl text-white py-20">
               Loading ...
