@@ -57,10 +57,12 @@ const MyFoundItems = () => {
               <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
                 <CardContent>
                   <Image
+                    className="mx-auto w-[280px] h-[200px]"
                     src={
+                      item?.uploadImage ||
                       'https://www.invoicera.com/wp-content/uploads-webpc/uploads/2023/11/default-image.jpg.webp'
                     }
-                    alt=""
+                    alt="my found items"
                     width={320}
                     height={320}
                   />

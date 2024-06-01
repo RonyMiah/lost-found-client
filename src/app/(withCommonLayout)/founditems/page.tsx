@@ -40,8 +40,9 @@ const lostItemValidationSchema = z.object({
   brand: z.string().min(1, 'Brand Name Required !'),
   location: z.string().min(1, 'Location Required !'),
   description: z.string().min(1, 'Description Required !'),
-  uploadImage: z.string().min(1, 'Image URL Required !'),
+  uploadImage: z.string().optional(),
 });
+// uploadImage: z.string()
 
 const Founditems = () => {
   const router = useRouter();

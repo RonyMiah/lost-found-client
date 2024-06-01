@@ -94,8 +94,7 @@ export default function AvaterMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        {/* <Link href="/lostitems"> */}
-
+    
         <Link href="/myprofile">
           <MenuItem>
             <ListItemIcon>
@@ -104,7 +103,7 @@ export default function AvaterMenu() {
             <span className="text-white">My Profile</span>
           </MenuItem>
         </Link>
-        {/* </Link> */}
+    
         <Link href="/lostitems">
           <MenuItem onClick={handleClose}>
             <ListItemIcon>

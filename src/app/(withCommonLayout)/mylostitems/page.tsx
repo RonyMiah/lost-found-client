@@ -8,6 +8,8 @@ import {
   Card,
   CardContent,
   Container,
+  Pagination,
+  Stack,
   Typography,
 } from '@mui/material';
 import Image from 'next/image';
@@ -53,10 +55,12 @@ const MylostItems = () => {
               <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
                 <CardContent>
                   <Image
+                    className="mx-auto w-[280px] h-[200px]"
                     src={
+                      item?.uploadImage ||
                       'https://www.invoicera.com/wp-content/uploads-webpc/uploads/2023/11/default-image.jpg.webp'
                     }
-                    alt=""
+                    alt="my lost items"
                     width={320}
                     height={320}
                   />
@@ -100,6 +104,12 @@ const MylostItems = () => {
             ))
           )}
         </div>
+        {/* <Stack spacing={2} className="flex justify-center items-center ">
+          <Typography sx={{ font: 'bold', color: 'white' }}>
+            Page: {page}
+          </Typography>
+          <Pagination count={pageCount} page={page} onChange={handleChange} />
+        </Stack> */}
       </Container>
     </div>
   );

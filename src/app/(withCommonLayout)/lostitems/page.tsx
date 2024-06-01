@@ -3,12 +3,18 @@ import ReuseableDatePicker from '@/components/Forms/ReuseableDatePicker';
 import ReuseableForm from '@/components/Forms/ReuseableForm';
 import ReuseableInput from '@/components/Forms/ReuseableInput';
 import ReuseableSelect from '@/components/Forms/ReuseableSelect';
-import ReuseableUploader from '@/components/Forms/ReuseableUploader';
 import { useCreateLostItemMutation } from '@/redux/api/lostApi';
 import { dateFormater } from '@/utils/dateFormater';
-import { modifyPayload } from '@/utils/modifyPayload';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Box, Button, Container, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Pagination,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
 import { FieldValues } from 'react-hook-form';
@@ -42,9 +48,9 @@ const lostItemValidationSchema = z.object({
   brand: z.string().min(1, 'Brand Name Required !'),
   location: z.string().min(1, 'Location Required !'),
   description: z.string().min(1, 'Description Required !'),
-  uploadImage: z.string().min(1, 'Image URL Required !'),
+  uploadImage: z.string().optional(),
 });
-
+// .min(1, 'Image URL Required !')
 const Lostitems = () => {
   const router = useRouter();
   const [error, setError] = useState('');
@@ -215,6 +221,7 @@ const Lostitems = () => {
           </ReuseableForm>
         </Box>
       </div>
+     
     </div>
   );
 };

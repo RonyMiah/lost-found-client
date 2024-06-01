@@ -11,6 +11,7 @@ import Logout from '@mui/icons-material/Logout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRouter } from 'next/navigation';
 import { logoutUser } from '@/services/actions/logOutUser';
+import Link from 'next/link';
 // import { logoutUser } from '@/services/actions/logoutUser';
 
 const menuStyles = {
@@ -100,10 +101,12 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar sx={{ background: 'transparent', color: 'white' }} />
-          <span className="text-white">Profile</span>
-        </MenuItem>
+        <Link href="/myprofile">
+          <MenuItem onClick={handleClose}>
+            <Avatar sx={{ background: 'transparent', color: 'white' }} />
+            <span className="text-white">Profile</span>
+          </MenuItem>
+        </Link>
 
         <Divider />
 

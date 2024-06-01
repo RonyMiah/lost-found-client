@@ -16,10 +16,15 @@ import Image from 'next/image';
 import logo from '@/assets/logo3.png';
 import AuthButton from '@/components/UI/AuthButton/AuthButton';
 import Link from 'next/link';
+import { getUserInfo } from '@/services/auth.services';
 
 const drawerWidth = 240;
 
 const Navber = ({ children }: { children: React.ReactNode }) => {
+  const userInfo = getUserInfo();
+
+  console.log(userInfo.role === 'admin');
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -45,9 +50,14 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
         <Link href={''} className="mx-8 block py-4">
           Home
         </Link>
-        <Link href={''} className="mx-8 block py-4">
+        {userInfo.role === 'admin' && (
+          <Link href={'/dashboard/admin'} className="mx-8 block py-4">
+            Dashboard
+          </Link>
+        )}
+        {/* <Link href={''} className="mx-8 block py-4">
           About Us
-        </Link>
+        </Link> */}
         <Link href={''} className="mx-8 block py-4">
           My Profile
         </Link>
@@ -99,9 +109,15 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
               <Link href={'/'} className="mx-8 ">
                 Home
               </Link>
-              <Link href={'#'} className="mx-8">
+              {/* <Link href={'#'} className="mx-8">
                 About Us
-              </Link>
+              </Link> */}
+              {userInfo.role === 'admin' && (
+                <Link href={'/dashboard/admin'} className="mx-8 block py-4">
+                  Dashboard
+                </Link>
+              )}
+
               <Link href={'/viewlostitems'} className="mx-8">
                 Lost Items
               </Link>

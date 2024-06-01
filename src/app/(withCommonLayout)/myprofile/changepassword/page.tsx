@@ -21,10 +21,17 @@ const ChangePassword = () => {
   const router = useRouter();
 
   const handleChangePassword = async (values: FieldValues) => {
-    const res = await changePassword(values).unwrap();
-    if (res?.message) {
-      toast.success(res?.message);
-      router.push('/myprofile');
+    try {
+      const res = await changePassword(values).unwrap();
+      if (res?.status === 200) {
+        toast.success(res?.message);
+        router.push('/myprofile');
+      } else {
+        throw new Error('Incorrect Old Password');
+      }
+    } catch (error) {
+      toast.error('Incorrect Password !');
+      console.log(error);
     }
   };
 
