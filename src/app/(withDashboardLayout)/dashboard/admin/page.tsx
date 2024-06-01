@@ -1,12 +1,10 @@
 import React from 'react';
+import UserActivity from './activity/page';
 
 const AdminPage = () => {
-
-
-  
   return (
     <div>
-      <h1>Admin Page </h1>
+      <UserActivity />
     </div>
   );
 };

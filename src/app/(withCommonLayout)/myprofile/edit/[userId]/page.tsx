@@ -18,10 +18,14 @@ const Doctorpage = ({ params }: any) => {
   const { data, isLoading } = useGetSingelUserQuery({});
 
   const handleSubmit = async (values: FieldValues) => {
-    const res = await updateMyProfile(values).unwrap();
-    if (res?.id) {
-      toast.success('Profile Updated Successfully !');
-      router.push('/myprofile');
+    try {
+      const res = await updateMyProfile(values).unwrap();
+      if (res?.id) {
+        toast.success('Profile Updated Successfully !');
+        router.push('/myprofile');
+      }
+    } catch (error: any) {
+      console.log(error?.message);
     }
   };
 

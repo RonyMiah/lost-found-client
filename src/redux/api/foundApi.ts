@@ -28,7 +28,7 @@ const extendedApi = baseApi.injectEndpoints({
 
     getSingleFoundItems: build.query({
       query: (id: string) => {
-        console.log(id);
+        // console.log(id);
         return {
           url: `/property/getsingle-found-items/${id}`,
           method: 'GET',
