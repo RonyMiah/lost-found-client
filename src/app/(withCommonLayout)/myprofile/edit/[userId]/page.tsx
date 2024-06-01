@@ -2,21 +2,31 @@
 
 import ReuseableForm from '@/components/Forms/ReuseableForm';
 import ReuseableInput from '@/components/Forms/ReuseableInput';
-import { useGetSingelUserQuery } from '@/redux/api/userApi';
+import {
+  useGetSingelUserQuery,
+  useUpdateMyProfileMutation,
+} from '@/redux/api/userApi';
 import { Button, Container, Grid } from '@mui/material';
-
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { FieldValues } from 'react-hook-form';
+import { toast } from 'sonner';
 
 const Doctorpage = ({ params }: any) => {
+  const router = useRouter();
+  const [updateMyProfile] = useUpdateMyProfileMutation();
   const { data, isLoading } = useGetSingelUserQuery({});
 
-  const handleSubmit = (values: FieldValues) => {
-    console.log(values);
+  const handleSubmit = async (values: FieldValues) => {
+    const res = await updateMyProfile(values).unwrap();
+    if (res?.id) {
+      toast.success('Profile Updated Successfully !');
+      router.push('/myprofile');
+    }
   };
 
   return (
-    <div className="py-24 text-white h-screen w- bg-gradient-to-r from-violet-900 to-fuchsia-900 ">
+    <div className="py-24 text-white h-screen w- ">
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12} md={12}>
@@ -33,19 +43,19 @@ const Doctorpage = ({ params }: any) => {
                     name="userName"
                     fullWidth={true}
                     label="User Name"
-                    sx={{ my: 4 }}
+                    sx={{ my: 2 }}
                   />
-                  <ReuseableInput
+                  {/* <ReuseableInput
                     name="email"
                     type="email"
                     fullWidth={true}
                     label="Email"
-                  />
+                  /> */}
                   <Button
                     fullWidth
                     type="submit"
                     sx={{
-                      my: 4,
+                      my: 1,
                       textAlign: 'center',
                     }}
                   >

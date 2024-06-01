@@ -8,7 +8,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube';
 import InstagramIcon from '@mui/icons-material/Instagram';
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: '#4D1D94', py: 6, color: 'white' }}>
+    <Box sx={{ backgroundColor: '#4a2183', py: 6, color: 'white' }}>
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={6} sm={2}>

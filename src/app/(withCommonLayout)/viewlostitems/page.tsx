@@ -1,6 +1,7 @@
 'use client';
 
 import { useGetAllLostItemsQuery } from '@/redux/api/lostApi';
+import { useDebounced } from '@/redux/hooks';
 import {
   Button,
   Card,
@@ -8,12 +9,33 @@ import {
   CardContent,
   Container,
   Grid,
+  MenuItem,
+  TextField,
   Typography,
 } from '@mui/material';
 import Image from 'next/image';
+import { useState } from 'react';
 
 const ViewLostItems = () => {
-  const { data, isLoading } = useGetAllLostItemsQuery({});
+  const items = ['Walet', 'Key', 'Mobail', 'Laptop', 'Bike', 'Car', 'Others'];
+  const query: Record<string, any> = {};
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectTerm, setSelectTerm] = useState<string>('');
+  // console.log(selectTerm);
+
+  const debounceTerm = useDebounced({
+    searchTerm: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debounceTerm) {
+    query['searchTerm'] = searchTerm;
+  }
+  if (selectTerm) {
+    query['category'] = selectTerm;
+  }
+
+  const { data, isLoading } = useGetAllLostItemsQuery({ ...query });
   // console.log(data?.data);
   if (isLoading) {
     <h1 className="text-white">Loading ..</h1>;
@@ -22,15 +44,59 @@ const ViewLostItems = () => {
   // console.log(data);
 
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24 text-white">
-      <div className="pt-6">
-        <h1 className="text-3xl font-bold mx-auto text-center ">
-          All Lost Items
-        </h1>
-        <hr className="w-48 mx-auto text-center my-2" />
-      </div>
-
-      {/* <Grid container spacing={2} py={4} > */}
+    <div className=" py-24 text-white">
+      <Container sx={{ margin: '0 auto' }}>
+        <Grid container spacing={2}>
+          <Grid item md={4} xs={12}>
+            <h1 className="text-3xl font-bold mx-auto text-center ">
+              All Lost Items
+            </h1>
+            <hr className="w-48 mx-auto text-center my-2" />
+          </Grid>
+          <Grid item md={2} xs={12}>
+            <div className="mx-auto">
+              <TextField
+                onChange={(e) => setSelectTerm(e.target.value)}
+                fullWidth
+                label="Select"
+                select
+                size="small"
+                placeholder="Category"
+                InputLabelProps={{
+                  sx: {
+                    color: 'white',
+                  },
+                }}
+              >
+                {items.map((item) => (
+                  <MenuItem
+                    sx={{
+                      '&.MuiMenuItem-root': {
+                        justifyContent: 'flex-start',
+                        color: 'white',
+                      },
+                    }}
+                    key={item}
+                    value={item}
+                  >
+                    {item}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+          </Grid>
+          <Grid item md={3} xs={12}>
+            <div className="mx-auto">
+              <TextField
+                fullWidth={true}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                size="small"
+                placeholder="Search ..."
+              />
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
       <Container>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 py-10 ">
           {isLoading ? (
@@ -42,6 +108,7 @@ const ViewLostItems = () => {
               <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
                 <CardContent>
                   <Image
+                    className="mx-auto"
                     src={
                       'https://www.invoicera.com/wp-content/uploads-webpc/uploads/2023/11/default-image.jpg.webp'
                     }
@@ -50,24 +117,32 @@ const ViewLostItems = () => {
                     height={320}
                   />
                   <Typography
-                    sx={{ fontSize: 14, mt: 2 }}
+                    sx={{ mb: 1.5 , mt:1}}
                     color="text.secondary"
                     gutterBottom
                   >
-                    <span className="font-extrabold">Description: </span>
+                    <span className="font-extrabold">Description : </span>
                     {item?.description}
                   </Typography>
                   <Typography
-                    sx={{ fontSize: 14 }}
+                    sx={{ mb: 1.5 }}
                     color="text.secondary"
                     gutterBottom
                   >
-                    <span className="font-extrabold">Finder Number: </span>
-                    {item?.finderContactNumber}
+                    <span className="font-extrabold"> Number : </span>
+                    {item?.contactNumber}
                   </Typography>
                   <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    <span className="font-extrabold">Status: </span>
-                    {item?.status}
+                    <span className="font-extrabold">Email : </span>
+                    {item?.email}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <span className="font-extrabold">Location : </span>
+                    {item?.location}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <span className="font-extrabold">Category : </span>
+                    {item?.category}
                   </Typography>
                 </CardContent>
               </Card>

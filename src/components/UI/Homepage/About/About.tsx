@@ -4,7 +4,7 @@ import React from 'react';
 import aboutImage from '@/assets/lost-and-found.png';
 const About = () => {
   return (
-    <div className=" h-full  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-12">
+    <div className=" py-12">
       <h2 className="text-5xl font-bold  text-center text-white ">
         About Us <hr className="w-24 mx-auto font-bold mt-4" />
       </h2>

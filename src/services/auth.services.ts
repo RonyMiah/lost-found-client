@@ -1,7 +1,11 @@
 import { authKey } from '@/constants/authKey';
 import { axiosInstance } from '@/helpars/axios/axiosInstance';
 import { jwtDecodedToken } from '@/utils/jwt';
-import { getFromLocalStorage, removeFromLocalStorage, setToLocalstorage } from '@/utils/local-storage';
+import {
+  getFromLocalStorage,
+  removeFromLocalStorage,
+  setToLocalstorage,
+} from '@/utils/local-storage';
 
 export const storeUserInfo = async ({
   accessToken,
@@ -32,6 +36,8 @@ export const getUserInfo = () => {
       ...decoded,
       role: decoded?.role?.toLowerCase(),
     };
+  } else {
+    return '';
   }
 };
 

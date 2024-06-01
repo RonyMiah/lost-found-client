@@ -1,4 +1,8 @@
+import { authKey } from '@/constants/authKey';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
 import { FieldValues } from 'react-hook-form';
+import setAccessToken from './setAccessToken';
 
 export const userLogin = async (data: FieldValues) => {
   const res = await fetch(
@@ -13,5 +17,10 @@ export const userLogin = async (data: FieldValues) => {
     }
   );
   const returnData = await res.json();
+  if(returnData?.data?.accessToken){
+    setAccessToken(returnData?.data?.accessToken, {
+      redirect: "/"
+    } )
+  }
   return returnData;
 };

@@ -34,6 +34,14 @@ const extendedApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ['user'],
     }),
+    updateMyProfile: build.mutation({
+      query: (data) => ({
+        url: `/user/update-my-profile`,
+        method: 'PATCH',
+        data: data,
+      }),
+      invalidatesTags: ['user'],
+    }),
     deleteUser: build.mutation({
       query: (id) => {
         // console.log(id);
@@ -52,4 +60,5 @@ export const {
   useGetSingelUserQuery,
   useUpdateUserInfoMutation,
   useDeleteUserMutation,
+  useUpdateMyProfileMutation,
 } = extendedApi;

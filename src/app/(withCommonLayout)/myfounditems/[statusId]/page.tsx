@@ -27,7 +27,7 @@ const UpdateStatus = ({ params }: any) => {
   };
 
   return (
-    <div className="h-screen  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24 ">
+    <div className="h-screen   py-24 ">
       <div className="max-w-[600px] mx-auto">
         <h1 className="text-4xl text-center font-bold text-white px-20">
           Update Status

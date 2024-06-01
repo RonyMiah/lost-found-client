@@ -33,7 +33,7 @@ const MyProfile = () => {
   //   console.log(data);
 
   return (
-    <div className="  text-white  py-44  bg-gradient-to-r from-violet-900 to-fuchsia-900 ">
+    <div className="  text-white  py-44   ">
       <Container>
         <div className="">
           <h1 className="text-3xl font-bold mx-auto text-center ">

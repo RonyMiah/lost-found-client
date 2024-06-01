@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <Box className="    bg-gradient-to-r from-violet-900 to-fuchsia-900 py-60">
+    <Box className="  py-60">
       <div className="text-center text-white">
         <h1 className="text-5xl font-bold pt-4  ">
           REPORT WHAT YOU FOUND OR LOST

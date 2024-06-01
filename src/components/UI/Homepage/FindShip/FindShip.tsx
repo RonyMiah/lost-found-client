@@ -4,7 +4,7 @@ import MoodIcon from '@mui/icons-material/Mood';
 const FindShip = () => {
   return (
     <div>
-      <div className=" h-full  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-6">
+      <div className=" h-full   py-6">
         <h2 className="text-5xl py-8 font-bold  text-center text-white ">
           Search. Find. Ship.
           <hr className="w-24 mx-auto font-bold mt-4" />

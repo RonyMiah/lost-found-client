@@ -13,7 +13,7 @@ const ResentLostItems = async () => {
   const data = await res.json();
   // console.log(data.data.data);
   return (
-    <div className=" h-full  bg-gradient-to-r from-violet-900 to-fuchsia-900 py-12">
+    <div className=" h-full py-12">
       <Box>
         <h2 className="text-white text-3xl font-bold text-center">
           Recent Lost Item Reports

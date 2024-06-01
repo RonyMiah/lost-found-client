@@ -35,7 +35,7 @@ const MylostItems = () => {
   };
 
   return (
-    <div className="  text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-32">
+    <div className="  text-white w-full  py-32">
       <div className="">
         <h1 className="text-3xl font-bold mx-auto text-center ">
           My Lost Items

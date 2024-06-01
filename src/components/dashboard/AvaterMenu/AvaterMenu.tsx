@@ -10,19 +10,18 @@ import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { useRouter } from 'next/navigation';
-import { removeFromUser } from '@/services/auth.services';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Link from 'next/link';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 import BadgeIcon from '@mui/icons-material/Badge';
+import { logoutUser } from '@/services/actions/logOutUser';
 
 export default function AvaterMenu() {
   const router = useRouter();
   const handleLogout = () => {
-    removeFromUser();
-    router.refresh();
+    logoutUser(router);
   };
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -38,7 +37,7 @@ export default function AvaterMenu() {
     <React.Fragment>
       <Box
         sx={{
-          py:{xs:2},
+          py: { xs: 2 },
           display: 'flex',
           alignItems: { sm: 'center', xs: 'center' },
           justifyContent: { sm: 'center', xs: 'center' },

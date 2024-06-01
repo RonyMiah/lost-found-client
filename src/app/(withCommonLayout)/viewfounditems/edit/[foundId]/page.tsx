@@ -38,7 +38,7 @@ const CreateClaimPage = ({ params }: any) => {
   };
 
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-24">
+    <div className=" h-full w-screen  py-24">
       {isLoading ? (
         <p className="py-96 text-center text-white text-3xl">Loading...</p>
       ) : (

@@ -2,6 +2,9 @@ import { createTheme } from '@mui/material/styles';
 
 export const theme = createTheme({
   palette: {
+    background: {
+      default: `rgb(78,29,147)`,
+    },
     primary: {
       main: '#121212',
     },
@@ -10,22 +13,21 @@ export const theme = createTheme({
     },
     mode: 'dark',
   },
-  
+
   components: {
-    
     MuiButton: {
       defaultProps: {
         variant: 'contained',
         color: 'secondary',
       },
-      
+
       styleOverrides: {
         root: {
           padding: '8px 24px',
         },
       },
     },
-    
+
     MuiContainer: {
       defaultProps: {
         maxWidth: 'xl',

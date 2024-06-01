@@ -39,7 +39,7 @@ const MyFoundItems = () => {
   };
 
   return (
-    <div className=" max-h-full text-white w-full bg-gradient-to-r from-violet-900 to-fuchsia-900 py-44">
+    <div className=" max-h-full text-white w-full  py-44">
       <div className="">
         <h1 className="text-3xl font-bold mx-auto text-center ">
           My Found Items

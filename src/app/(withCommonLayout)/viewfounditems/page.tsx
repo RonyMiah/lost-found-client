@@ -1,35 +1,103 @@
 'use client';
 
 import { useGetAllFoundItemsQuery } from '@/redux/api/foundApi';
+import { useDebounced } from '@/redux/hooks';
 import {
   Button,
   Card,
-  CardActions,
   CardContent,
   Container,
   Grid,
+  MenuItem,
+  TextField,
   Typography,
 } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const ViewFoundItems = () => {
-  const { data, isLoading } = useGetAllFoundItemsQuery({});
+  const items = ['Walet', 'Key', 'Mobail', 'Laptop', 'Bike', 'Car', 'Others'];
+  const query: Record<string, any> = {};
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [selectTerm, setSelectTerm] = useState<string>('');
+  // console.log(selectTerm);
+
+  const debounceTerm = useDebounced({
+    searchTerm: searchTerm,
+    delay: 600,
+  });
+
+  if (!!debounceTerm) {
+    query['searchTerm'] = searchTerm;
+  }
+  if (selectTerm) {
+    query['category'] = selectTerm;
+  }
+
+  console.log(query);
+
+  const { data, isLoading } = useGetAllFoundItemsQuery({ ...query });
   //   console.log(data?.data);
+
   if (isLoading) {
     <h1 className="text-white">Loading ..</h1>;
   }
 
-  //   console.log(data);
-
   return (
-    <div className=" h-full w-screen bg-gradient-to-r from-violet-900 to-fuchsia-900 py-48 text-white">
-      <div className="pt-6">
-        <h1 className="text-3xl font-bold mx-auto text-center ">
-          All Found Items
-        </h1>
-        <hr className="w-48 mx-auto text-center my-2" />
-      </div>
+    <div className=" py-24 text-white">
+      <Container sx={{ margin: '0 auto' }}>
+        <Grid container spacing={2}>
+          <Grid item md={4} xs={12}>
+            <h1 className="text-3xl font-bold mx-auto text-center ">
+              All Found Items
+            </h1>
+            <hr className="w-48 mx-auto text-center my-2" />
+          </Grid>
+          <Grid item md={2} xs={12}>
+            <div className="mx-auto">
+              <TextField
+                onChange={(e) => setSelectTerm(e.target.value)}
+                fullWidth
+                label="Select"
+                select
+                size="small"
+                placeholder="Category"
+                InputLabelProps={{
+                  sx: {
+                    color: 'white',
+                  },
+                }}
+              >
+                {items.map((item) => (
+                  <MenuItem
+                    sx={{
+                      '&.MuiMenuItem-root': {
+                        justifyContent: 'flex-start',
+                        color: 'white',
+                      },
+                    }}
+                    key={item}
+                    value={item}
+                  >
+                    {item}
+                  </MenuItem>
+                ))}
+              </TextField>
+            </div>
+          </Grid>
+          <Grid item md={3} xs={12}>
+            <div className="mx-auto">
+              <TextField
+                fullWidth={true}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                size="small"
+                placeholder="Search ..."
+              />
+            </div>
+          </Grid>
+        </Grid>
+      </Container>
 
       {/* <Grid container spacing={2} py={4} > */}
       <Container>
@@ -43,6 +111,7 @@ const ViewFoundItems = () => {
               <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
                 <CardContent>
                   <Image
+                    className="mx-auto"
                     src={
                       'https://www.invoicera.com/wp-content/uploads-webpc/uploads/2023/11/default-image.jpg.webp'
                     }
@@ -79,9 +148,8 @@ const ViewFoundItems = () => {
                     {item?.category}
                   </Typography>
                   <Link href={`/viewfounditems/edit/${item.id}`}>
-                  <Button>Claim Items </Button>
+                    <Button>Claim Items </Button>
                   </Link>
-                  
                 </CardContent>
               </Card>
             ))
