@@ -37,12 +37,12 @@ const UserActivity = () => {
   ];
 
   const dataItems = [
-    { x: 100, y: 200, id: 1 },
-    { x: 120, y: 100, id: 2 },
-    { x: 170, y: 300, id: 3 },
-    { x: 140, y: 250, id: 4 },
-    { x: 150, y: 400, id: 5 },
-    { x: 110, y: 280, id: 6 },
+    { x: 10, y: 50, id: 1 },
+    { x: 20, y: 20, id: 2 },
+    { x: 25, y: 40, id: 3 },
+    { x: 10, y: 20, id: 4 },
+    { x: 5, y: 15, id: 5 },
+    { x: 37, y: 35, id: 6 },
   ];
 
   return (
@@ -135,7 +135,7 @@ const UserActivity = () => {
                     },
                   ]}
                   margin={{ right: 5 }}
-                  width={500}
+                  width={300}
                   height={300}
                   legend={{ hidden: true }}
                 />
@@ -147,7 +147,7 @@ const UserActivity = () => {
             <Grid item xs={12} md={6}>
               <div className="flex justify-center items-center flex-col ">
                 <ScatterChart
-                  width={500}
+                  width={300}
                   height={300}
                   series={[{ data: dataItems, label: 'pv', id: 'pvId' }]}
                   xAxis={[{ min: 0 }]}
