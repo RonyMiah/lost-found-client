@@ -7,7 +7,7 @@ import Providers from '@/lib/Providers/Providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Lost And Found Application',
+  title: 'Found Way',
   description:
     'At Found Way, we understand the distress of losing valuable belongings and the joy of recovering them. Our mission is to simplify the process of reporting lost and found items, making it easier for people to recover their possessions and for good Samaritans to return found items to their rightful owners.',
 };
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body  >
+        <body>
           <AppRouterCacheProvider>
             <>
               <Toaster position="top-center" />

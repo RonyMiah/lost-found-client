@@ -1,3 +1,4 @@
+'use client';
 import { Box, Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -7,13 +8,14 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import CardItems from '../Card/Card';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useGetAllLostItemsQuery } from '@/redux/api/lostApi';
 
-const ResentLostItems = async () => {
-  const res = await fetch(
-    'https://lost-found-server.vercel.app/api/v1/property/getall-lost-items'
-  );
-  const data = await res.json();
-  // console.log(data.data.data);
+const ResentLostItems = () => {
+  const { data, isLoading } = useGetAllLostItemsQuery({});
+  if (isLoading) {
+    <p>Loading ...</p>;
+  }
+  // console.log(data?.data);
   return (
     <div className=" h-full py-12">
       <Box>
@@ -28,7 +30,7 @@ const ResentLostItems = async () => {
 
       <Container>
         <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5 ">
-          {data?.data?.data?.slice(0, 5).map((item: any) => (
+          {data?.data?.slice(0, 5).map((item: any) => (
             <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
               <CardContent>
                 <Image
