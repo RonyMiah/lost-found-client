@@ -23,7 +23,8 @@ const ChangePassword = () => {
   const handleChangePassword = async (values: FieldValues) => {
     try {
       const res = await changePassword(values).unwrap();
-      if (res?.status === 200) {
+
+      if (res?.message) {
         toast.success(res?.message);
         router.push('/myprofile');
       } else {
