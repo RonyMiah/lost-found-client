@@ -135,7 +135,7 @@ const ViewFoundItems = () => {
                     height={320}
                   />
                   <Typography
-                    sx={{ fontSize: 14, mt: 2 }}
+                    sx={{ mb: 1.5, mt: 2 }}
                     color="text.secondary"
                     gutterBottom
                   >
@@ -143,7 +143,7 @@ const ViewFoundItems = () => {
                     {item?.description}
                   </Typography>
                   <Typography
-                    sx={{ fontSize: 14 }}
+                    sx={{ mb: 1.5 }}
                     color="text.secondary"
                     gutterBottom
                   >
@@ -157,6 +157,10 @@ const ViewFoundItems = () => {
                   <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     <span className="font-extrabold">Location : </span>
                     {item?.location}
+                  </Typography>
+                  <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                    <span className="font-extrabold">Status : </span>
+                    {item?.status}
                   </Typography>
                   <Typography sx={{ mb: 1.5 }} color="text.secondary">
                     <span className="font-extrabold">Category : </span>
