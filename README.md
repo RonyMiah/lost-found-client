@@ -7,7 +7,6 @@ Welcome to **Lost and Found**, a web application designed to help users report a
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
