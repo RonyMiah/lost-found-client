@@ -4,7 +4,7 @@ import React from 'react';
 import aboutImage from '@/assets/lost-and-found.png';
 const About = () => {
   return (
-    <div className=" py-12">
+    <div id="about" className=" py-12">
       <h2 className="text-5xl font-bold  text-center text-white ">
         About Us <hr className="w-24 mx-auto font-bold mt-4" />
       </h2>

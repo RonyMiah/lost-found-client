@@ -43,7 +43,7 @@ const extendedApi = baseApi.injectEndpoints({
         method: 'PATCH',
         data: obj.data,
       }),
-      invalidatesTags: ['found'],
+      invalidatesTags: ['found', 'claim'],
     }),
     deleteFoundtems: build.mutation({
       query: (id) => ({

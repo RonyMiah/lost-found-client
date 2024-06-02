@@ -5,7 +5,6 @@ import { useChangePasswordMutation } from '@/redux/api/authApi';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Button, Grid } from '@mui/material';
 import { useRouter } from 'next/navigation';
-
 import React from 'react';
 import { FieldValues } from 'react-hook-form';
 import { toast } from 'sonner';
@@ -23,7 +22,7 @@ const ChangePassword = () => {
   const handleChangePassword = async (values: FieldValues) => {
     try {
       const res = await changePassword(values).unwrap();
-
+      // console.log(res, 'RESPONSE');
       if (res?.message) {
         toast.success(res?.message);
         router.push('/myprofile');
@@ -32,7 +31,7 @@ const ChangePassword = () => {
       }
     } catch (error) {
       toast.error('Incorrect Password !');
-      console.log(error);
+      // console.log(error);
     }
   };
 

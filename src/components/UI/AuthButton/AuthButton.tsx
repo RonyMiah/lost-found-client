@@ -1,9 +1,8 @@
 'use client';
 import AvaterMenu from '@/components/dashboard/AvaterMenu/AvaterMenu';
-import { getUserInfo, } from '@/services/auth.services';
+import { getUserInfo } from '@/services/auth.services';
 import { Button } from '@mui/material';
 import Link from 'next/link';
-
 
 const AuthButton = () => {
   const userInfo = getUserInfo();
@@ -13,9 +12,9 @@ const AuthButton = () => {
       {userInfo?.id ? (
         <AvaterMenu />
       ) : (
-        <Button component={Link} href="/login">
-          Login
-        </Button>
+        <Link href={'/login'}>
+          <Button>Login</Button>
+        </Link>
       )}
     </>
   );

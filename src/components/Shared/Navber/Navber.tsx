@@ -55,9 +55,9 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
             Dashboard
           </Link>
         )}
-        {/* <Link href={''} className="mx-8 block py-4">
+        <Link href={'/#about'} className="mx-8 block py-4">
           About Us
-        </Link> */}
+        </Link>
         <Link href={''} className="mx-8 block py-4">
           My Profile
         </Link>
@@ -109,9 +109,9 @@ const Navber = ({ children }: { children: React.ReactNode }) => {
               <Link href={'/'} className="mx-8 ">
                 Home
               </Link>
-              {/* <Link href={'#'} className="mx-8">
+              <Link href={'/#about'} className="mx-8">
                 About Us
-              </Link> */}
+              </Link>
               {userInfo.role === 'admin' && (
                 <Link href={'/dashboard/admin'} className="mx-8 block py-4">
                   Dashboard
