@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Lost and Found
 
-## Getting Started
+Welcome to **Lost and Found**, a web application designed to help users report and find lost items. Our mission is to reconnect people with their belongings through a simple and effective platform.
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Report Lost Items**: Users can report items they have lost, including details such as item description, location, title and category.
+- **Report Found Items**: Users can report items they have found, with similar details as lost items.
+- **Search Functionality**: Users can search for lost and found items using various filters (description, location, title and category).
+- **User Profiles**: Registered users can manage their reports and contact others regarding their lost or found items.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+To set up the project locally, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the repository**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   https://github.com/RonyMiah/lost-found-client.git
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Navigate to the project directory**:
 
-## Deploy on Vercel
+   ```bash
+   cd lost-found-client
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Install dependencies**:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```bash
+   npm install
+   ```
+
+4. **Set up environment variables**:
+   Create a `.env` file in the root directory and add the necessary environment variables. For example:
+
+   ```plaintext
+   NEXT_PUBLIC_BACKEND_API_URL = Your Backend URL
+   ```
+
+5. **Run the application**:
+   ```bash
+   npm run dev
+   ```
+
+## Usage
+
+Once the application is up and running, open your browser and navigate to `http://localhost:3000` to start using the Lost and Found platform.
+
+### Reporting Lost Items
+
+1. Sign up or log in to your account.
+2. Navigate to the "Report Lost Item" section.
+3. Fill out the form with the item details and submit.
+
+### Reporting Found Items
+
+1. Sign up or log in to your account.
+2. Navigate to the "Report Found Item" section.
+3. Fill out the form with the item details and submit.
+
+### Searching for Items
+
+1. Use the search bar on all found items and all lost items.
+2. Apply filters category and search results .
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries or support, please contact us at [support@lostandfound.com](mailto:support@lostandfound.com)
+
+---
+
+Thank you for using Lost and Found! We hope our platform helps you reconnect with your belongings.
