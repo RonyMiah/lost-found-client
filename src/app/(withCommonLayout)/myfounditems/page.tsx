@@ -47,7 +47,7 @@ const MyFoundItems = () => {
         <hr className="w-48 mx-auto text-center my-6" />
       </div>
       <Container>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-5 pt-6 ">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  pt-6 ">
           {isLoading ? (
             <h1 className="text-center mx-auto text-3xl text-white py-20">
               Loading ...

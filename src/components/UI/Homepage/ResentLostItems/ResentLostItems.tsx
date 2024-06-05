@@ -29,7 +29,7 @@ const ResentLostItems = () => {
       </Box>
 
       <Container>
-        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-5 ">
+        <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  ">
           {data?.data?.slice(0, 5).map((item: any) => (
             <Card key={item.id} sx={{ minWidth: 275, boxShadow: 'none' }}>
               <CardContent>
