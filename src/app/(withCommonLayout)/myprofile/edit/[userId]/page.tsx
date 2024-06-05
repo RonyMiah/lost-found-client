@@ -49,12 +49,12 @@ const Doctorpage = ({ params }: any) => {
                     label="User Name"
                     sx={{ my: 2 }}
                   />
-                  {/* <ReuseableInput
+                  <ReuseableInput
                     name="email"
                     type="email"
                     fullWidth={true}
                     label="Email"
-                  /> */}
+                  />
                   <Button
                     fullWidth
                     type="submit"
